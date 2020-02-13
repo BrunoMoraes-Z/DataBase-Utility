@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>me.Bruno</groupId>
+  <artifactId>DataBaseUtility</artifactId>
+  <version>1.0.0</version>
+
+  <name>DataBaseUtility</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>driver-mysql</groupId>
+      <artifactId>driver-mysql</artifactId>
+      <version>1</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/Libs/mysql-connector-java-5.1.15-bin.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>driver-oracle</groupId>
+      <artifactId>driver-oracle</artifactId>
+      <version>2</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/Libs/ojdbc14.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>driver-sqlite</groupId>
+      <artifactId>driver-sqlite</artifactId>
+      <version>3</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/Libs/sqlite-jdbc-3.30.1.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>3.4.1</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>${project.name}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
