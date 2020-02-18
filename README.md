@@ -1,6 +1,6 @@
 <h1 align="center">DataBase-Utility 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-green.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-98eb170828-green.svg?cacheSeconds=2592000" />
 </p>
 
 > repository:  https://jitpack.io/#com.gitlab.brunoMoraes16/database-utility
