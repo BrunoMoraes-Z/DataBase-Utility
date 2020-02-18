@@ -5,19 +5,6 @@
 
 > repository:  https://jitpack.io/#com.gitlab.brunoMoraes16/database-utility
 
-> <repositories>
-> 		<repository>
-> 		    <id>jitpack.io</id>
-> 		    <url>https://jitpack.io</url>
-> 		</repository>
-> 	</repositories>
-	
-> <dependency>
->	    <groupId>com.gitlab.brunoMoraes16</groupId>
->	    <artifactId>database-utility</artifactId>
->	    <version>LAST-VERSION</version>
->	</dependency>
-
 ## Author
 
 👤 **Bruno Moraes**
