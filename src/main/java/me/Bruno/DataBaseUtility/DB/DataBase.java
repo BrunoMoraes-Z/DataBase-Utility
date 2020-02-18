@@ -20,12 +20,10 @@ public class DataBase {
     public DataBase(String path) {
         this.type = DataBaseType.SQLITE;
         this.path = path;
-        buildSource();
     }
 
     public DataBase(DataBaseType type) {
         this.type = type;
-        buildSource();
     }
 
     public DataBase(DataBaseType type, String ip, String port, String database, String login, String password) {
@@ -35,7 +33,6 @@ public class DataBase {
         this.database = database;
         this.login = login;
         this.password = password;
-        buildSource();
     }
 
     public DataBaseType getType() {
@@ -75,7 +72,7 @@ public class DataBase {
     }
 
     public <T> T execute(ConnectionCallback<T> callback) {
-        if (this.ds == null) {
+        if (ds != null && !ds.isClosed()) {
             buildSource();
         }
         Connection con = null;
