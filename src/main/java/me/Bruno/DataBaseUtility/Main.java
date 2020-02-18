@@ -3,6 +3,8 @@ package me.Bruno.DataBaseUtility;
 import java.sql.PreparedStatement;
 import java.util.UUID;
 
+import com.zaxxer.hikari.HikariDataSource;
+
 import me.Bruno.DataBaseUtility.DB.DataBase;
 import me.Bruno.DataBaseUtility.DB.DataBaseType;
 
@@ -11,8 +13,8 @@ public class Main {
     private static DataBase db = null;
 
     public static void main(String[] args) {
-        
-        boolean started = startBase(true);
+
+        boolean started = startBase(false);
 
         if (!started) {
             System.exit(-1);
@@ -20,14 +22,16 @@ public class Main {
 
         createTables();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 3; i++) {
             UUID uuid = UUID.randomUUID();
             boolean b1 = addPlayer(uuid);
             if (b1) {
-                createSign("TESTE_" + i, uuid.toString());
+                for (int j = 0; j < 6; j++) {
+                    createSign("TESTE_" + i + "." + j, uuid.toString());
+                }
+
             }
         }
-
     }
 
     public static boolean addPlayer(UUID uuid) {
@@ -44,8 +48,8 @@ public class Main {
         return b;
     }
 
-    public static boolean createSign(String location, String player) {
-        Boolean b = db.execute(con -> {
+    public static void createSign(String location, String player) {
+        db.execute(con -> {
             try {
                 PreparedStatement stm = con.prepareStatement("insert into `chests` (id_player, location) values ((select id_player from `players` where uuid = ?), ?)");
                 stm.setString(1, player);
@@ -56,7 +60,6 @@ public class Main {
                 return false;
             }
         });
-        return b;
     }
 
     public static boolean startBase(Boolean useSqLite) {
