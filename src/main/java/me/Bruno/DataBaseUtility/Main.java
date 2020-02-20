@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        boolean started = startBase(false);
+        boolean started = startBase(true);
 
         if (!started) {
             System.exit(-1);

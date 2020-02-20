@@ -40,7 +40,7 @@ public class DataBase {
     }
 
     public Connection getConnection() {
-        if (ds != null && !ds.isClosed()) {
+        if (ds == null || ds.isClosed()) {
             buildSource();
         }
         try {
@@ -72,7 +72,7 @@ public class DataBase {
     }
 
     public <T> T execute(ConnectionCallback<T> callback) {
-        if (ds != null && !ds.isClosed()) {
+    	if (ds == null || ds.isClosed()) {
             buildSource();
         }
         Connection con = null;
@@ -80,6 +80,7 @@ public class DataBase {
             con = ds.getConnection();
             return callback.doInConnection(con);
         } catch (SQLException e) {
+        	e.printStackTrace();
             try {
                 if (con != null && !con.isClosed()) {
                     con.rollback();
