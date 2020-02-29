@@ -24,6 +24,7 @@ public class SQLite extends Base {
         source.setMaxLifetime(60000);
         source.setIdleTimeout(45000);
         source.setMaximumPoolSize(50);
+        source.setAutoCommit(true);
     }
 
     public HikariConfig getSource() {
